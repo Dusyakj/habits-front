@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hobits-frontend
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+    networks:
+      - hobits-network
+
+networks:
+  hobits-network:
+    driver: bridge
